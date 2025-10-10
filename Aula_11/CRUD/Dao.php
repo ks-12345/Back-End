@@ -4,7 +4,7 @@ class alunoDao {
     private $aluno =[];
 
     public function criarAluno(){
-       return $this->aluno;
+       $this->aluno!$aluno
     }
 
     public function lerAluno(){
