@@ -1,0 +1,19 @@
+Programação BackEnd
+
+Relacionamento entre classes: a referência para análise será sempre os objetos daquela determinada classe.
+
+Associação: Conexão entre duas classes, onde os objetos podem interagir compartilhando informações.
+Exemplo: Pessoa e Empresa . Pode-se escolher um objeto de cada classe para análise ---->
+Joazinho trabalha na empresa Ajinomoto. Nesse tipo de relacionamento as classes podem existir independentemente 
+uma da outra.
+
+Agregação: Conexão entre duas classes, onde uma delas é uma parte de outra, mas o objeto "parte" pode existir independemente  do objeto ""todo".
+Exemplo: Carro e Motorista --->
+Hayron pode dirigir um Del Rey, sendo uma "parte" que compoe o carro com um todo, mas pode existir independemente do carro.
+
+Composição: é uma conexão mais forte entre classes, onde a existência do objeto "parte" é diretamente ligada ao objeto "todo". Isso  quer dizer que se o todo deixa de existir, a "parte" também deixa. 
+Exemplo: Carro e Motor. Relacionamento os objetos ---> O carro Audi R8 pode conter um motor V12 5.2 aspirando, mas o motor deixa de existir se o carro também deixa.
+
+CRUD --> create, read, update, delete
+DAO --> data access object
+ARRAY --> 
