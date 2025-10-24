@@ -11,7 +11,6 @@ require_once "Produtos.php";
 
 $dao = new ProdutoDAO();
 
-// CREATE 
 // CREATE
 $dao-> criarProduto(new Produtos (101, "Tomate", 4.50));
 $dao-> criarProduto(new Produtos (102, "Maça", 3.20));
@@ -28,6 +27,7 @@ foreach ($dao->lerProduto() as $produto) {
     {$produto->getPreco()} \n";
 }
 
+$dao->atualizarAluno(3, "Viviane", "Eletricista");
 
 echo "\n Após Atualização: \n ";
 foreach ($dao->lerProduto() as $produto) {
