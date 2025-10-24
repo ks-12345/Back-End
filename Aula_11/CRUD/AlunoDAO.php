@@ -1,10 +1,33 @@
 <?php
 
-// CRUD -->Create, Read, Update e Delete
+class AlunoDAO {
+    private $alunos = []; // Array para armazenamento temporário dos objetos e seus atributos, antes de mandar para o banco de dados. foi criado inicialmente vazio [];
 
-class AlunoDAO { // DAO --> Data Acess Object
-    private $alunos = []; //Array para armazenamento temporario dos objetos e seus atributos, antes de mandar para o banco de dados. Foi criado inicialmente vazio [].
-    
+private $arquivo = "alunos.json"; // Cria o arquivo de json para que os dados sejam armazenados 
+
+// Construtor AlunoDAO --> carrega os dados do arquivo ao iniciar a aplicação
+public function __construct() {
+    if (file_exists($this->arquivo)) {
+       // Lê o conteudo do arquivo caso ele ja exista
+       $conteudo = file_get_contents
+       ($this->arquivo); // Atribui as informações do arquivo existente a variavel $conteudo
+
+       $dados = json_decode (json: $conteudo, associative: true); // Converte um JSON em array associativo
+
+       if ($dados) {
+        foreach ($dados as $id => $info){
+            $this ->alunos[$id] = new Aluno(
+                id: $info ['id'],
+                nome: $info ['nome'],
+                curso: $info ['curso']
+            );
+        }
+       }
+    }
+}
+
+
+
     public function criarAluno(Aluno $aluno){  // metodo Create  --> para criar um novo objeto;
          $this->alunos[$aluno->getId()] = $aluno;
     }
