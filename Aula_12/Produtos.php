@@ -4,6 +4,8 @@
 // Por último faça um index.php para testar a criação e manipulação dos objetos.
 // Implemente a persistencia de dados com o arquivo 'produtos.json'.
 
+namespace Aula_12;
+
 class Produtos {
     private $codigo;
     private $nome;

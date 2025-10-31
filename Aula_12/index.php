@@ -4,12 +4,9 @@
 
 //Apague a maça e o tomate dos produtos (aqui nao somos saudaveis)/
 
-require_once "ProdutoDAO.php";
-require_once "Produtos.php";
+namespace Aula_12;
 
-
-
-$dao = new Produto();
+$dao = new ProdutoDAO();
 
 // CREATE
 $dao-> criarProduto(new Produtos (101, "Tomate", 4.50));
