@@ -2,7 +2,7 @@
 
 // Crie uma classe 'produtos'  com os atributos: còdigo, nome e preco. Após isso faça a ProdutosDAO para a utilização dos métodos CRUD. 
 // Por último faça um index.php para testar a criação e manipulação dos objetos. Implemente a persistencia de dados com o arquivo 'produtos.json'
-namespace AULA12;
+namespace Aula_12;
 
 class ProdutoDAO {
     private $Produtos = []; 
