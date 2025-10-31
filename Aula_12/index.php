@@ -6,6 +6,9 @@
 
 namespace Aula_12;
 
+require_once "ProdutoDAO.php";
+require_once "Produtos.php";
+
 $dao = new ProdutoDAO();
 
 // CREATE
