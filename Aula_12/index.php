@@ -4,10 +4,10 @@
 
 //Apague a maça e o tomate dos produtos (aqui nao somos saudaveis)/
 
+namespace Aula_12;
+
 require_once "ProdutoDAO.php";
 require_once "Produtos.php";
-
-
 
 $dao = new ProdutoDAO();
 
@@ -27,7 +27,7 @@ foreach ($dao->lerProduto() as $produto) {
     {$produto->getPreco()} \n";
 }
 
-$dao->atualizarAluno(3, "Viviane", "Eletricista");
+$dao->atualizarProduto(105, "Desinfetante Barberex", "9.50");
 
 echo "\n Após Atualização: \n ";
 foreach ($dao->lerProduto() as $produto) {
@@ -37,7 +37,8 @@ foreach ($dao->lerProduto() as $produto) {
 
 
 // DELETE
-$dao->excluirproduto(2);
+$dao->excluirProduto(101);
+$dao->excluirProduto(102);
 
 echo "\nApós exclusão:\n";
 foreach ($dao->lerProduto() as $produto) {

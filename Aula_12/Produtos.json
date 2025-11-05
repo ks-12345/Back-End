@@ -1,0 +1,32 @@
+{
+    "103": {
+        "codigo": 103,
+        "nome": "Queijo Brie",
+        "preco": 25
+    },
+    "104": {
+        "codigo": 104,
+        "nome": "Iogurte Grego",
+        "preco": 6.8
+    },
+    "105": {
+        "codigo": 105,
+        "nome": "Desinfetante Barberex",
+        "preco": "9.50"
+    },
+    "106": {
+        "codigo": 106,
+        "nome": "Bolacha Bono",
+        "preco": 4
+    },
+    "107": {
+        "codigo": 107,
+        "nome": "Desinfetante Urca",
+        "preco": 8.9
+    },
+    "108": {
+        "codigo": 108,
+        "nome": "Prestobarba Bic",
+        "preco": 12.3
+    }
+}
