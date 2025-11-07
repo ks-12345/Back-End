@@ -4,34 +4,25 @@ namespace Aula_15;
 
 require_once __DIR__. '\\..\\Controller\\BebidaController.php';
 
-// Cria a instância do controlador
 $controller = new BebidaController();
 
 $bebidaParaEditar = null;
-$nomeOriginal = ''; // Variável para guardar o nome original da bebida
+$nomeOriginal = ''; 
 
-// --- 1. Lógica para Processar o Formulário de Atualização ---
-// Verifica se o formulário de edição foi submetido
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['acao'] ?? '') === 'atualizar') {
     
-    // O nomeOriginal é a chave que usamos para identificar a bebida no array
     $nomeOriginal = $_POST['nomeOriginal'] ?? '';
     $categoria    = $_POST['categoria'] ?? '';
-    $volume       = $_POST['Volume'] ?? ''; // O campo chama Volume com 'V' maiúsculo
-    $valor        = $_POST['Valor'] ?? 0;   // O campo chama Valor com 'V' maiúsculo
+    $volume       = $_POST['Volume'] ?? ''; 
+    $valor        = $_POST['Valor'] ?? 0;  
     $qtde         = $_POST['qtde'] ?? 0;
-    
-    // Chama o método editar (já existente) no controller
+
     $controller->editar($nomeOriginal, $categoria, $volume, $valor, $qtde);
     
-    // Redireciona de volta para a lista principal após a edição
     header('Location: index.php');
     exit();
 }
 
-// --- 2. Lógica para Carregar os Dados Iniciais da Bebida ---
-// Se não é a submissão de atualização, estamos vindo do index.php para CARREGAR o formulário.
-// O index.php envia o 'nome' via POST, então buscamos a bebida com esse nome.
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nome'])) {
     $nomeOriginal = $_POST['nome'];
     $bebidaParaEditar = $controller->buscar($nomeOriginal);
@@ -42,7 +33,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nome'])) {
         exit();
     }
 } else {
-    // Se não veio do index.php ou da própria atualização, redireciona (acesso direto/inválido)
     header('Location: index.php');
     exit();
 }
