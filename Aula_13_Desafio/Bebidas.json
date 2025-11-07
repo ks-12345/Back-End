@@ -1,0 +1,23 @@
+{
+    "água": {
+        "nome": "água",
+        "categoria": "Água",
+        "volume": "100ml",
+        "valor": "30",
+        "qtde": "200"
+    },
+    "Vinho Branco": {
+        "nome": "Vinho Branco",
+        "categoria": "Vinho",
+        "volume": "300ml",
+        "valor": "70",
+        "qtde": "50"
+    },
+    "Café": {
+        "nome": "Café",
+        "categoria": "Refrigerante",
+        "volume": "500ml",
+        "valor": "25.90",
+        "qtde": "10"
+    }
+}

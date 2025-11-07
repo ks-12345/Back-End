@@ -16,7 +16,7 @@ class Bebidas {
         $this->qtde = $qtde;
     }
 
-    public function getNome() {
+    public function getNome(): mixed {
         return $this->nome;
     }
 
@@ -38,7 +38,7 @@ class Bebidas {
 // -------------------
 
     public function setNome($nome) {
-        $this->nome = $nome;
+        $this->nome = (mb_strtolower($nome));
     }
 
     public function setCategoria($categoria) {

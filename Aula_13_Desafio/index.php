@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../controller/BebidaController.php';
+require_once __DIR__ . '/Controller/BebidaController.php';
 
 $controller = new BebidaController();
 
