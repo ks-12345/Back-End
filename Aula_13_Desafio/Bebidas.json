@@ -1,1 +1,9 @@
-[]
+{
+    "\u00e1gua": {
+        "nome": "\u00e1gua",
+        "categoria": "\u00c1gua",
+        "volume": "500ml",
+        "valor": "25.90",
+        "qtde": "500"
+    }
+}

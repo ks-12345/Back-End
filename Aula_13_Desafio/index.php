@@ -217,6 +217,12 @@ tr:hover {
         <td><?= number_format($bebida->getValor(), 2, ',', '.') ?></td>
         <td><?= htmlspecialchars($bebida->getQtde()) ?></td>
         <td>
+
+        <form method="POST" action="editar_bebida.php" style="display:inline;">
+                <input type="hidden" name="nome" value="<?= htmlspecialchars($bebida->getNome()) ?>">
+                <button type="submit" class="edit-btn">Editar</button>
+            </form>
+
             <form method="POST" style="display:inline;">
                 <input type="hidden" name="acao" value="deletar">
                 <input type="hidden" name="nome" value="<?= htmlspecialchars($bebida->getNome()) ?>">
