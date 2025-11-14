@@ -1,0 +1,17 @@
+PARTES DO CODIGO QUE EU NÃO ENTENDI
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['acao'] ?? '') === 'atualizar') {
+    
+    $nomeOriginal = $_POST['nomeOriginal'] ?? '';
+    $categoria    = $_POST['categoria'] ?? '';
+    $volume       = $_POST['Volume'] ?? ''; 
+    $valor        = $_POST['Valor'] ?? 0;  
+    $qtde         = $_POST['qtde'] ?? 0;
+=====================================================================
+
+        header('Location: index.php');
+    exit();
+=====================================================================
+if ($_SERVER ['REQUEST_METHOD'] === 'POST'){
+    $acao = $_POST['acao'] ?? '';
+    if ($acao === 'criar')
