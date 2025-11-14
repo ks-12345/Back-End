@@ -1,4 +1,8 @@
 <?php
+
+namespace Aula_16\Model;
+;
+
 require_once 'Bebida.php';
 require_once 'Connection.php';
 

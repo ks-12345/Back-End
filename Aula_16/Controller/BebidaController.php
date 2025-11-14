@@ -1,9 +1,10 @@
 <?php
 
-namespace Aula_15;
+namespace Aula_16;
+use Aula_16\Model\BebidaDAO;
 
-require_once __DIR__. "\\..\\Model\\BebidaDAO.php";
-require_once __DIR__. "\\..\\Model\\Bebida.php";
+require_once __DIR__. "\..\Model\BebidaDAO.php";
+require_once __DIR__. "\..\Model\Bebida.php";
 
 class BebidaController {
     private $dao;
@@ -26,7 +27,7 @@ class BebidaController {
     public function criar($nome,$categoria,$volume,$valor,$qtde) {
         $id = time();
         $bebida = new Bebida( $nome, $categoria, $volume, $valor, $qtde);
-        $this->dao->criarBebidas($bebida);
+        $this->dao->criarBebida($bebida);
 
     }
 
