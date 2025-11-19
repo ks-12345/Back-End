@@ -1,34 +1,34 @@
 <?php
 
-namespace aula_17;
+namespace Aula_17;
 
-require_once __DIR__. '\\..\\Controller\\BebidaController.php'; // ajustado para Windows
+require_once __DIR__. '\\..\\Controller\\LivroController.php'; // ajustado para Windows
 
-$controller = new BebidaController(); // instancia o controller
+$controller = new LivroController(); // instancia o controller
 
-$bebidaParaEditar = null; // bebida que sera editada
-$nomeOriginal = '';  // nome original da bebida
+$livroParaEditar = null; // livro que sera editada
+$tituloOriginal = '';  // titulo original da livro
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['acao'] ?? '') === 'atualizar') { // verifica se o formulario foi submetido para atualizar
     
-    $nomeOriginal = $_POST['nomeOriginal'] ?? ''; // nome original da bebida
-    $categoria    = $_POST['categoria'] ?? '';
-    $volume       = $_POST['Volume'] ?? ''; 
-    $valor        = $_POST['Valor'] ?? 0;  
+    $tituloOriginal = $_POST['tituloOriginal'] ?? ''; // titulo original da livro
+    $genero    = $_POST['genero'] ?? '';
+    $autor       = $_POST['Autor'] ?? ''; 
+    $ano        = $_POST['Ano'] ?? '';  
     $qtde         = $_POST['qtde'] ?? 0;
 
-    $controller->editar($nomeOriginal, $categoria, $volume, $valor, $qtde); // chama o metodo editar do controller
+    $controller->editar($tituloOriginal, $genero, $autor, $ano, $qtde); // chama o metodo editar do controller
     
     header('Location: index.php'); // redireciona para a lista apos a edicao
     exit();
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nome'])) { 
-    $nomeOriginal = $_POST['nome'];
-    $bebidaParaEditar = $controller->buscar($nomeOriginal);
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['titulo'])) { 
+    $tituloOriginal = $_POST['titulo'];
+    $livroParaEditar = $controller->buscar($tituloOriginal);
     
-    // Se a bebida não for encontrada, algo deu errado, redireciona.
-    if (!$bebidaParaEditar) { // bebida nao encontrada
+    // Se a livro não for encontrada, algo deu errado, redireciona.
+    if (!$livroParaEditar) { // livro nao encontrada
         header('Location: index.php'); // redireciona
         exit();
     }
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nome'])) {
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
-    <title>Editar Bebida</title>
+    <title>Editar Livros</title>
     <style>
         body { font-family: sans-serif; padding: 20px; }
         form { background: #f4f4f4; padding: 20px; border-radius: 8px; max-width: 400px; margin: 20px 0; }
@@ -68,41 +68,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nome'])) {
     </style>
 </head>
 <body>
-    <h1>Editar Bebida: <?php echo htmlspecialchars($bebidaParaEditar->getNome()); ?></h1>
+    <h1>Editar Livros: <?php echo htmlspecialchars($livroParaEditar->getTitulo()); ?></h1>
     
     <form method="POST">
         <input type="hidden" name="acao" value="atualizar"> 
         
-        <input type="hidden" name="nomeOriginal" value="<?php echo htmlspecialchars($nomeOriginal); ?>"> 
+        <input type="hidden" name="tituloOriginal" value="<?php echo htmlspecialchars($tituloOriginal); ?>"> 
         
         
-        <label for="nome_display">Nome (Chave, não editável):</label>
-        <input type="text" id="nome_display" value="<?php echo htmlspecialchars($bebidaParaEditar->getNome()); ?>" disabled> 
+        <label for="titulo_display">Titulo (Chave, não editável):</label>
+        <input type="text" id="titulo_display" value="<?php echo htmlspecialchars($livroParaEditar->getTitulo()); ?>" disabled> 
         
 
-        <label for="categoria">Categoria:</label>
-        <select name="categoria" id="categoria" required>
-            <?php $currentCat = $bebidaParaEditar->getCategoria(); ?>
-            <option value="Refrigerante" <?php if ($currentCat === 'Refrigerante') echo 'selected'; ?>>Refrigerante</option>
-            <option value="Cerveja" <?php if ($currentCat === 'Cerveja') echo 'selected'; ?>>Cerveja</option>
-            <option value="Vinho" <?php if ($currentCat === 'Vinho') echo 'selected'; ?>>Vinho</option>
-            <option value="Destilado" <?php if ($currentCat === 'Destilado') echo 'selected'; ?>>Destilado</option>
-            <option value="Água" <?php if ($currentCat === 'Água') echo 'selected'; ?>>Água</option>
-            <option value="Suco" <?php if ($currentCat === 'Suco') echo 'selected'; ?>>Suco</option>
-            <option value="Energético" <?php if ($currentCat === 'Energético') echo 'selected'; ?>>Energético</option>
+        <label for="genero">Genero:</label>
+        <select name="genero" id="genero" required>
+            <?php $currentCat = $livroParaEditar->getGenero(); ?>
+            <option value="Aventura" <?php if ($currentCat === 'Aventura') echo 'selected'; ?>>Aventura</option>
+            <option value="Romance" <?php if ($currentCat === 'Romance') echo 'selected'; ?>>Romance</option>
+            <option value="Literatura Brasileira" <?php if ($currentCat === 'Literatura Brasileira') echo 'selected'; ?>>Literatura Brasileira</option>
+            <option value="Terror" <?php if ($currentCat === 'Terror') echo 'selected'; ?>>Terror</option>
+            <option value="Suspense" <?php if ($currentCat === 'Suspense') echo 'selected'; ?>>Suspense</option>
+            <option value="Comedia" <?php if ($currentCat === 'Comedia') echo 'selected'; ?>>Comedia</option>
+            <option value="Fantasia" <?php if ($currentCat === 'Fantasia') echo 'selected'; ?>>Fantasia</option>
 
         </select>
         
-        <label for="volume">Volume:</label>
-        <input type="text" name="Volume" id="volume" value="<?php echo htmlspecialchars($bebidaParaEditar->getVolume()); ?>" required>
+        <label for="autor">Autor:</label>
+        <input type="text" name="Autor" id="autor" value="<?php echo htmlspecialchars($livroParaEditar->getAutor()); ?>" required>
         
 
-        <label for="valor">Valor:</label>
-        <input type="number" name="Valor" id="valor" step="0.01" value="<?php echo htmlspecialchars($bebidaParaEditar->getValor()); ?>" required>
+        <label for="ano">Ano:</label>
+        <input type="number" name="Ano" id="ano" value="<?php echo htmlspecialchars($livroParaEditar->getAno()); ?>" required>
         
 
         <label for="qtde">Quantidade:</label>
-        <input type="number" name="qtde" id="qtde" value="<?php echo htmlspecialchars($bebidaParaEditar->getQtde()); ?>" required>
+        <input type="number" name="qtde" id="qtde" value="<?php echo htmlspecialchars($livroParaEditar->getQtde()); ?>" required>
         
 
         <button type="submit">Salvar Alterações</button>

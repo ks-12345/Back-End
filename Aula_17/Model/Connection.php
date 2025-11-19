@@ -1,5 +1,5 @@
 <?php
-namespace aula_17;
+namespace Aula_17;
 
 use PDO;
 USE PDOException;
@@ -11,7 +11,7 @@ class Connection {
         try {
             //Ajuste se usuário e senha aqui
             $host = 'localhost';
-            $dbname ='projeto_bebidas';
+            $dbname ='Biblioteca';
             $user = 'root';
             $pass = 'senaisp';
 
