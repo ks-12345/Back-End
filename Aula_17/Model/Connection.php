@@ -1,5 +1,5 @@
 <?php
-namespace Aula_16;
+namespace aula_17;
 
 use PDO;
 USE PDOException;

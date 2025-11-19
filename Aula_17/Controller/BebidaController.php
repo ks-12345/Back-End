@@ -1,5 +1,5 @@
 <?php
-namespace Aula_16;
+namespace aula_17;
 
 require_once __DIR__. "\\..\\Model\\BebidaDAO.php";
 require_once __DIR__. "\\..\\Model\\Bebida.php";
