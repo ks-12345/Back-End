@@ -33,11 +33,11 @@ class LivroDAO {
             INSERT INTO livros (titulo, genero, autor, ano, qtde)
             VALUES (:titulo, :genero, :autor, :ano, :qtde)");
         $stmt->execute([
-            ':titulo' => $livro->getTitulo(),
-            ':genero' => $livro->getGenero(),
-            ':autor' => $livro->getAutor(),
-            ':ano' => $livro->getAno(),
-            ':qtde' => $livro->getQtde()
+            ':titulo' => trim($livro->getTitulo()),
+            ':genero' => trim($livro->getGenero()),
+            ':autor' => trim($livro->getAutor()),
+            ':ano' => trim($livro->getAno()),
+            ':qtde' => trim($livro->getQtde())
         ]);
     }
 
@@ -95,5 +95,29 @@ class LivroDAO {
             );
         }
         return null;
+    }
+
+     public function buscarLivros($termo) {
+        $stmt = $this->conn->prepare("
+            SELECT * FROM livros 
+            WHERE titulo LIKE :termo 
+               OR autor LIKE :termo 
+               OR genero LIKE :termo 
+            ORDER BY titulo
+        ");
+        $termoBusca = '%' . $termo . '%';
+        $stmt->execute([':termo' => $termoBusca]);
+        
+        $result = [];
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $result[] = new Livros(
+                $row['titulo'],
+                $row['genero'],
+                $row['autor'],
+                $row['ano'],
+                $row['qtde']
+            );
+        }
+        return $result;
     }
 }

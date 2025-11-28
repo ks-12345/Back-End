@@ -108,6 +108,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['titulo'])) {
         <button type="submit">Salvar Alterações</button>
     </form>
     
+
     <p><a href="index.php">Voltar para a lista</a></p>
 </body>
 </html>

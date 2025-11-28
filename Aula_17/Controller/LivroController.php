@@ -43,6 +43,11 @@ class LivroController {
     public function buscar($titulo) {
         return $this->dao->buscarPorTitulo($titulo);
     }
+
+    public function buscarLivros($termo) {
+        return $this->dao->buscarLivros($termo);
+    }
+
 }
 
 ?>
